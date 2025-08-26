@@ -30,7 +30,6 @@ public class Ubicacion {
     public List<String> ver_reservas_activas() {
         return disponibilidad;
     }
-
     //getters
     public String getEdificio() { return edificio; }
     public void setEdificio(String edificio) { this.edificio = edificio; }
