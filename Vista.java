@@ -8,7 +8,6 @@ public class Vista extends JFrame {
 
     private final ControladorVista controlador;
 
-    // Listados 
     private final DefaultListModel<String> modeloUsuarios = new DefaultListModel<>();
     private final DefaultListModel<String> modeloClubs = new DefaultListModel<>();
     private final DefaultListModel<String> modeloUbicaciones = new DefaultListModel<>();
@@ -40,7 +39,6 @@ public class Vista extends JFrame {
         return tabs;
     }
 
-    // Usuarios
     private JPanel crearPanelUsuarios() {
         JPanel root = panelConPadding();
         root.setLayout(new BorderLayout(12, 12));
@@ -82,7 +80,6 @@ public class Vista extends JFrame {
         return root;
     }
 
-// Clubs
 private JPanel crearPanelClubs() {
     JPanel root = panelConPadding();
     root.setLayout(new BorderLayout(12, 12));
@@ -161,7 +158,6 @@ private JPanel crearPanelClubs() {
 }
 
 
-    // ubicaciones
     private JPanel crearPanelUbicaciones() {
         JPanel root = panelConPadding();
         root.setLayout(new BorderLayout(12, 12));
@@ -207,7 +203,6 @@ private JPanel crearPanelClubs() {
         return root;
     }
 
-   // Eventos
 private JPanel crearPanelEventos() {
     JPanel root = panelConPadding();
     root.setLayout(new BorderLayout(12, 12));
@@ -340,7 +335,6 @@ private JPanel crearPanelEventos() {
 }
 
 
-    // reportes
     private JPanel crearPanelReportes() {
         JPanel root = panelConPadding();
         root.setLayout(new BorderLayout(12, 12));
@@ -367,7 +361,6 @@ private JPanel crearPanelEventos() {
         return root;
     }
 
-    // Helpers
     private JPanel panelConPadding() {
         JPanel p = new JPanel();
         p.setBorder(new EmptyBorder(12, 12, 12, 12));
