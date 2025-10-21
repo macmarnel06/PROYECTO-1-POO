@@ -46,3 +46,4 @@ public class Encargado extends Usuario {
         return ubicacion.verificar_disponibilidad_salon();
     }
 }
+
