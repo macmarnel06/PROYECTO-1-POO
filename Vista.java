@@ -73,7 +73,7 @@ public class Vista extends JFrame {
                 tfId.setText(""); tfNombre.setText(""); tfCorreo.setText("");
                 refrescarListas();
             } else {
-                warn("No se pudo crear el usuario (revisa el ID).");
+                warn("No se pudo crear el usuario.");
             }
         });
 
@@ -173,7 +173,7 @@ private JPanel crearPanelClubs() {
         JTextField tfCap = new JTextField();
         JButton btnCrear = new JButton("Crear ubicación");
 
-        form.add(new JLabel("ID (entero):"));
+        form.add(new JLabel("ID:"));
         form.add(tfId);
         form.add(new JLabel("Edificio:"));
         form.add(tfEdificio);
@@ -239,13 +239,13 @@ private JPanel crearPanelEventos() {
     fila++;
 
     gbc.gridx = 0; gbc.gridy = fila; gbc.weightx = 0;
-    formCrear.add(new JLabel("FechaHora (ISO, opcional):"), gbc);
+    formCrear.add(new JLabel("Fecha/Hora:"), gbc);
     gbc.gridx = 1; gbc.gridy = fila; gbc.weightx = 1;
     formCrear.add(tfFechaHora, gbc);
     fila++;
 
     gbc.gridx = 0; gbc.gridy = fila; gbc.weightx = 0;
-    formCrear.add(new JLabel("ID Ubicación (entero, opcional):"), gbc);
+    formCrear.add(new JLabel("ID Ubicación:"), gbc);
     gbc.gridx = 1; gbc.gridy = fila; gbc.weightx = 1;
     formCrear.add(tfIdUbic, gbc);
     fila++;
@@ -273,7 +273,7 @@ private JPanel crearPanelEventos() {
     int filaA = 0;
 
     gbcA.gridx = 0; gbcA.gridy = filaA; gbcA.weightx = 0;
-    formAsistencia.add(new JLabel("ID Evento (entero):"), gbcA);
+    formAsistencia.add(new JLabel("ID Evento:"), gbcA);
     gbcA.gridx = 1; gbcA.gridy = filaA; gbcA.weightx = 1;
     formAsistencia.add(tfIdEventoA, gbcA);
     filaA++;
