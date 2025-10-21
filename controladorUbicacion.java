@@ -1,8 +1,5 @@
 
-
-import modelo.Ubicacion;
-
-public class ControladorUbicacion {
+public class controladorUbicacion {
 
     public Ubicacion crearUbicacion(String edificio, String nombreSala, int capacidadMaxima) {
         Ubicacion ubicacion = new Ubicacion();

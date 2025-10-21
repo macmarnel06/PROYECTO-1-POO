@@ -1,4 +1,3 @@
-package PROYECTO1;
 
 public class Encargado extends Usuario {
 
@@ -8,11 +7,9 @@ public class Encargado extends Usuario {
 
     public boolean reservar(Ubicacion ubicacion, String etiquetaReserva) {
         if (ubicacion == null) return false;
-
         if (etiquetaReserva == null || etiquetaReserva.isBlank()) {
             etiquetaReserva = "Reserva realizada por " + getNombre();
         }
-
         if (!ubicacion.getDisponibilidad().contains(etiquetaReserva)) {
             ubicacion.getDisponibilidad().add(etiquetaReserva);
             System.out.println("Reserva creada en " + ubicacion.getSalon() + " por " + getNombre());
@@ -23,7 +20,6 @@ public class Encargado extends Usuario {
 
     public boolean cancelar_reserva(Ubicacion ubicacion, String etiquetaReserva) {
         if (ubicacion == null || etiquetaReserva == null) return false;
-
         boolean ok = ubicacion.getDisponibilidad().remove(etiquetaReserva);
         if (ok) {
             System.out.println("Reserva cancelada en " + ubicacion.getSalon() + " por " + getNombre());
@@ -33,7 +29,6 @@ public class Encargado extends Usuario {
 
     public boolean registrar_asistencia(Evento evento, Usuario usuario) {
         if (evento == null || usuario == null) return false;
-
         boolean ok = evento.registrar_asistencia(usuario);
         if (ok) {
             System.out.println(usuario.getNombre() + " fue registrado en el evento " + evento.getNombre());
@@ -46,4 +41,3 @@ public class Encargado extends Usuario {
         return ubicacion.verificar_disponibilidad_salon();
     }
 }
-

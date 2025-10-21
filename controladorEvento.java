@@ -1,12 +1,7 @@
 
-
-import modelo.Evento;
-import modelo.Ubicacion;
-import modelo.Club;
-
 import java.time.LocalDateTime;
 
-public class ControladorEvento {
+public class controladorEvento {
 
     public Evento crearEvento(String nombre, String descripcion, LocalDateTime fechaHora, Ubicacion ubicacion, Club club) {
         Evento evento = new Evento();
