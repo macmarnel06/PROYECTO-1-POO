@@ -1,50 +1,39 @@
 package PROYECTO1;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Ubicacion {
-
-    //atributos
+    private int id;
     private String edificio;
-    private String salon;
-    private int capacidad;
-    private String club_que_esta;
-    private List<String> disponibilidad; 
+    private String nombreSala;
+    private int capacidadMaxima;
 
-    public Ubicacion(String edificio, String salon, int capacidad) {
+    public Ubicacion(int id, String edificio, String nombreSala, int capacidadMaxima) {
+        this.id = id;
         this.edificio = edificio;
-        this.salon = salon;
-        this.capacidad = capacidad;
-        this.club_que_esta = null;
-        this.disponibilidad = new ArrayList<>();
+        this.nombreSala = nombreSala;
+        this.capacidadMaxima = capacidadMaxima;
     }
 
-    //metodos
-    public boolean verificar_disponibilidad_salon() {
-        return disponibilidad.isEmpty();
-    }
+    public Ubicacion() {}
 
-    public int ver_capacidad() {
-        return capacidad;
-    }
+    // Getters y Setters
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public List<String> ver_reservas_activas() {
-        return disponibilidad;
-    }
-    //getters
     public String getEdificio() { return edificio; }
     public void setEdificio(String edificio) { this.edificio = edificio; }
 
-    public String getSalon() { return salon; }
-    public void setSalon(String salon) { this.salon = salon; }
+    public String getNombreSala() { return nombreSala; }
+    public void setNombreSala(String nombreSala) { this.nombreSala = nombreSala; }
 
-    public int getCapacidad() { return capacidad; }
-    public void setCapacidad(int capacidad) { this.capacidad = capacidad; }
+    public int getCapacidadMaxima() { return capacidadMaxima; }
+    public void setCapacidadMaxima(int capacidadMaxima) { this.capacidadMaxima = capacidadMaxima; }
 
-    public String getClub_que_esta() { return club_que_esta; }
-    public void setClub_que_esta(String club_que_esta) { this.club_que_esta = club_que_esta; }
+    public boolean estaDisponible(String fecha, String hora) {
+        // Simulación de disponibilidad
+        return true;
+    }
 
-    public List<String> getDisponibilidad() { return disponibilidad; }
-    public void setDisponibilidad(List<String> disponibilidad) { this.disponibilidad = disponibilidad; }
+    public String resumenUbicacion() {
+        return String.format("Ubicación: %s - %s (Capacidad: %d)", edificio, nombreSala, capacidadMaxima);
+    }
 }
