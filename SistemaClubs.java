@@ -17,7 +17,6 @@ public class SistemaClubs {
         this.ubicaciones = new ArrayList<>();
     }
 
-    // Altas básicas
     public void agregarUsuario(Usuario u) { if (u != null) usuarios.add(u); }
     public void agregarClub(Club c) { if (c != null) clubs.add(c); }
     public void agregarEvento(Evento e) { if (e != null) eventos.add(e); }
@@ -28,7 +27,6 @@ public class SistemaClubs {
     public List<Evento> getEventos() { return eventos; }
     public List<Ubicacion> getUbicaciones() { return ubicaciones; }
 
-    // Reporte simple
     public String generar_reporte(String tipo) {
         if ("clubs".equalsIgnoreCase(tipo)) {
             StringBuilder sb = new StringBuilder("REPORTE DE CLUBES\n");
@@ -61,3 +59,4 @@ public class SistemaClubs {
         return "Tipo de reporte no soportado";
     }
 }
+
