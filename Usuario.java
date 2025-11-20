@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,13 +6,13 @@ public class Usuario {
     private String id_usuario;
     private String nombre;
     private String correo_estudiante;
-    private List<Club> clubs;
+    private final List<Club> clubs;
 
     public Usuario(String id_usuario, String nombre, String correo_estudiante) {
         this.id_usuario = id_usuario;
         this.nombre = nombre;
         this.correo_estudiante = correo_estudiante;
-        this.clubs = new ArrayList<Club>();
+        this.clubs = new ArrayList<>();
     }
 
     public void unirse_club(Club club) {
@@ -52,4 +51,8 @@ public class Usuario {
     public String getNombre() { return nombre; }
     public String getCorreo_estudiante() { return correo_estudiante; }
     public List<Club> getClubs() { return clubs; }
+
+    public void setNombre(String nombre) { if (nombre != null) this.nombre = nombre; }
+    public void setCorreo_estudiante(String correo_estudiante) { if (correo_estudiante != null) this.correo_estudiante = correo_estudiante; }
 }
+

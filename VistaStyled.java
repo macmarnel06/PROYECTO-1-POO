@@ -1,12 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Vista extends JFrame {
+public class VistaStyled extends JFrame {
 
-    public Vista(ControladorVista controlador) {
+    public VistaStyled(ControladorVista controlador) {
         setTitle("Gestión de Clubs - UVG");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        // Look & Feel Nimbus si está disponible
         try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -21,13 +22,15 @@ public class Vista extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
+        // Pestañas con paneles
         JTabbedPane tabs = new JTabbedPane();
-        tabs.addTab("Usuarios", new UsuariosPanel(controlador));
-        tabs.addTab("Clubs", new ClubsPanel(controlador));
-        tabs.addTab("Ubicaciones", new UbicacionesPanel(controlador));
-        tabs.addTab("Eventos", new EventosPanel(controlador));
-        tabs.addTab("Reportes", new ReportesPanel(controlador));
+        tabs.addTab("Usuarios", new UsuariosStyledPanel(controlador));
+        tabs.addTab("Clubs", new ClubsStyledPanel(controlador));
+        tabs.addTab("Ubicaciones", new UbicacionesStyledPanel(controlador));
+        tabs.addTab("Eventos", new EventosStyledPanel(controlador));
+        tabs.addTab("Reportes", new ReportesStyledPanel(controlador));
 
         add(tabs, BorderLayout.CENTER);
     }
 }
+

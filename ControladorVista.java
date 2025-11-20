@@ -1,6 +1,6 @@
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ControladorVista {
@@ -31,7 +31,6 @@ public class ControladorVista {
         return u;
     }
 
-    /** Crea evento con ID autoincremental simple (tamaño + 1). fechaHora en ISO local: "2025-10-20T14:30" */
     public Evento crearEvento(String nombre, String descripcion, String fechaHoraISO, Integer idUbicacion, String idClub) {
         LocalDateTime fechaHora = null;
         if (fechaHoraISO != null && !fechaHoraISO.isBlank()) {
@@ -70,10 +69,6 @@ public class ControladorVista {
         return e.registrar_asistencia(u);
     }
 
-    public String reporteClubs() { return sistema.generar_reporte("clubs"); }
-    public String reporteEventos() { return sistema.generar_reporte("eventos"); }
-    public String reporteUbicaciones() { return sistema.generar_reporte("ubicaciones"); }
-
     public List<Usuario> listarUsuarios() { return sistema.getUsuarios(); }
     public List<Club> listarClubs() { return sistema.getClubs(); }
     public List<Ubicacion> listarUbicaciones() { return sistema.getUbicaciones(); }
@@ -83,19 +78,87 @@ public class ControladorVista {
         for (Usuario u : sistema.getUsuarios()) if (u.getId_usuario().equals(idUsuario)) return u;
         return null;
     }
-
     public Club buscarClubPorId(String idClub) {
         for (Club c : sistema.getClubs()) if (c.getIdClub().equals(idClub)) return c;
         return null;
     }
-
     public Ubicacion buscarUbicacionPorId(int id) {
         for (Ubicacion u : sistema.getUbicaciones()) if (u.getId() == id) return u;
         return null;
     }
-
     public Evento buscarEventoPorId(int id) {
         for (Evento e : sistema.getEventos()) if (e.getId() == id) return e;
         return null;
+    }
+
+    public String reporteClubs() { return sistema.generar_reporte("clubs"); }
+    public String reporteEventos() { return sistema.generar_reporte("eventos"); }
+    public String reporteUbicaciones() { return sistema.generar_reporte("ubicaciones"); }
+
+    // Utilidad para leer el ID del formato "ID | Nombre ..."
+    public String extraerIdDeLinea(String linea) {
+        if (linea == null) return null;
+        int p = linea.indexOf('|');
+        if (p < 0) return linea.trim();
+        return linea.substring(0, p).trim();
+    }
+
+    // Búsqueda simple por texto en usuarios
+    public List<Usuario> buscarUsuariosPorTexto(String q) {
+        List<Usuario> out = new ArrayList<>();
+        if (q == null) q = "";
+        String qq = q.toLowerCase();
+        for (Usuario u : sistema.getUsuarios()) {
+            if (u.getId_usuario().toLowerCase().contains(qq) || u.getNombre().toLowerCase().contains(qq)) {
+                out.add(u);
+            }
+        }
+        return out;
+    }
+
+    // CRUD extra para Usuarios/Clubs (usados por la UI)
+    public boolean actualizarUsuario(String id, String nuevoNombre, String nuevoCorreo) {
+        Usuario u = buscarUsuarioPorId(id);
+        if (u == null) return false;
+        if (nuevoNombre != null && !nuevoNombre.isBlank()) u.setNombre(nuevoNombre);
+        if (nuevoCorreo != null && !nuevoCorreo.isBlank()) u.setCorreo_estudiante(nuevoCorreo);
+        return true;
+    }
+
+    public boolean eliminarUsuario(String id) {
+        var it = sistema.getUsuarios().iterator();
+        boolean removed = false;
+        while (it.hasNext()) {
+            Usuario u = it.next();
+            if (u.getId_usuario().equals(id)) {
+                for (Club c : sistema.getClubs()) c.removerMiembro(u);
+                it.remove();
+                removed = true;
+                break;
+            }
+        }
+        return removed;
+    }
+
+    public boolean actualizarClub(String id, String nuevoNombre, String nuevaDesc) {
+        Club c = buscarClubPorId(id);
+        if (c == null) return false;
+        if (nuevoNombre != null && !nuevoNombre.isBlank()) c.setNombre(nuevoNombre);
+        if (nuevaDesc != null && !nuevaDesc.isBlank()) c.setDescripcion(nuevaDesc);
+        return true;
+    }
+
+    public boolean eliminarClub(String id) {
+        var it = sistema.getClubs().iterator();
+        boolean removed = false;
+        while (it.hasNext()) {
+            Club c = it.next();
+            if (c.getIdClub().equals(id)) {
+                it.remove();
+                removed = true;
+                break;
+            }
+        }
+        return removed;
     }
 }

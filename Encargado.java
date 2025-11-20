@@ -1,4 +1,3 @@
-
 public class Encargado extends Usuario {
 
     public Encargado(String id_usuario, String nombre, String correo_estudiante) {
@@ -41,3 +40,4 @@ public class Encargado extends Usuario {
         return ubicacion.verificar_disponibilidad_salon();
     }
 }
+

@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,3 +43,4 @@ public class Ubicacion {
         return String.format("Ubicación: %s - %s (Capacidad: %d)", edificio, nombreSala, capacidadMaxima);
     }
 }
+

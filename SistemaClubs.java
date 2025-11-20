@@ -1,14 +1,12 @@
-
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class SistemaClubs {
 
-    private List<Usuario> usuarios;
-    private List<Club> clubs;
-    private List<Evento> eventos;
-    private List<Ubicacion> ubicaciones;
+    private final List<Usuario> usuarios;
+    private final List<Club> clubs;
+    private final List<Evento> eventos;
+    private final List<Ubicacion> ubicaciones;
 
     public SistemaClubs() {
         this.usuarios = new ArrayList<>();
