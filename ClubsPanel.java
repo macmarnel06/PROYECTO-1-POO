@@ -1,7 +1,7 @@
-import javax.swing.*;
-import javax.swing.border.*;
 import java.awt.*;
 import java.util.List;
+import javax.swing.*;
+import javax.swing.border.*;
 
 public class ClubsPanel extends JPanel {
 
@@ -137,4 +137,3 @@ public class ClubsPanel extends JPanel {
     private void info(String m){ JOptionPane.showMessageDialog(this, m,"Info",JOptionPane.INFORMATION_MESSAGE); }
     private void warn(String m){ JOptionPane.showMessageDialog(this, m,"Atención",JOptionPane.WARNING_MESSAGE); }
 }
-

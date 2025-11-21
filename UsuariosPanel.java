@@ -117,3 +117,4 @@ public class UsuariosPanel extends JPanel {
     private void info(String m){ JOptionPane.showMessageDialog(this, m,"Info",JOptionPane.INFORMATION_MESSAGE); }
     private void warn(String m){ JOptionPane.showMessageDialog(this, m,"Atención",JOptionPane.WARNING_MESSAGE); }
 }
+

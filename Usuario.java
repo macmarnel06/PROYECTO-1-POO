@@ -55,4 +55,3 @@ public class Usuario {
     public void setNombre(String nombre) { if (nombre != null) this.nombre = nombre; }
     public void setCorreo_estudiante(String correo_estudiante) { if (correo_estudiante != null) this.correo_estudiante = correo_estudiante; }
 }
-

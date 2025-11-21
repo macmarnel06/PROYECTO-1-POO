@@ -57,4 +57,3 @@ public class SistemaClubs {
         return "Tipo de reporte no soportado";
     }
 }
-
